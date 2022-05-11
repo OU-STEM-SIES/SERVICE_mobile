@@ -4,7 +4,7 @@ This repository contains the client-side code for the [SERVICE project](https://
 
 The application allows sharing of experiences with supporters in a secure and private environment.
 
-There is a separate repository for the corresponding [server-side code](https://stem-ts-gitlab.open.ac.uk/jal58/SERVICE).
+NOTE: There is a separate repository for the corresponding [server-side code](https://github.com/OU-STEM-SIES/SERVICE_server).
 
 ## Getting Started
 
