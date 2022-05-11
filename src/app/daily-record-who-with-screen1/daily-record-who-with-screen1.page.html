@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button *ngIf="isThereAnyDataToDelete()" (click)="deleteBtnClicked()">
+        <ion-icon name="trash-outline"></ion-icon>Delete
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button text="Cancel" icon="close-outline" defaultHref="/daily-record-screen4" routerLink="/daily-record-screen4"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isLoading ? 'Loading...' : '' }}</ion-title>
+  </ion-toolbar>
+  <div class="titleHeader">
+    {{'Daily Record - ' +whatActivityDisplayStr}}
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="divider_hk">
+    <ion-label class="dividerLabel_hk">Who were you with?</ion-label>
+  </ion-item-divider>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-md="6" offset-md="3">
+
+        <div *ngIf="isLoading" class="ion-text-center">
+          <br/><br/><br/>
+          <ion-spinner color="primary"></ion-spinner>
+        </div>
+
+        <div *ngIf="!isLoading">
+          <ion-button color="primary" expand="block" class="byMyselfBtn" (click)="byMyselfBtnClicked($event)">
+            By myself
+          </ion-button>
+          <br/>
+          <ion-list>
+            <ion-item *ngFor="let aPerson of peopleList">
+              <div [class]="getStyleClass2(aPerson.howClose)"><img  class="socialGropupImg" src="{{getSocialGroupImage(aPerson.group)}}"/></div>
+              <ion-label class="fullName">{{aPerson.fullName}}</ion-label>
+              <ion-checkbox slot="end" color="dark" [(ngModel)]="aPerson.isChecked"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="--background: #f4f5f8;">
+    <ion-buttons slot="start">
+      <ion-button id="addPersonBtn" (click)="addPersonBtnClicked()">&#65291;Add person</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button id="saveBtn" (click)="saveBtnClicked()">Save</ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon size="large" name="person-outline"></ion-icon>
+      <ion-badge class="numberOfPeopleSelectedBadge">{{getNumberOfPeopleSelected()}}</ion-badge>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+

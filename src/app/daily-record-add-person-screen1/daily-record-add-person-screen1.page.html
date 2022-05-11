@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-back-button text="Cancel" icon="close-outline" defaultHref="{{'/daily-record-who-with-screen1/' +whatActivityCode}}" routerLink="{{'/daily-record-who-with-screen1/' +whatActivityCode}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add person</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div *ngIf="showForm == true">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">First name</ion-label>
+            <ion-input type="text" name="firstName" [(ngModel)]="data.firstName"  required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Last name</ion-label>
+            <ion-input type="text" name="lastName" [(ngModel)]="data.lastName" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-top: 0.1em;">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Group</ion-label>
+            <ion-select
+              placeholder="Select one value"
+              name="group"
+              [(ngModel)]="data.group"
+              required
+              [ngStyle]="{'background-image': 'url(' +getSelectedSocialGroupImage()+ ')'}"
+              class="socialGroupSelection"
+              (click)="showGroupsForSelection()">
+                <ion-select-option
+                  *ngFor="let socialGroup of socialGroupsArray"
+                  value="{{socialGroup.groupCode}}">{{socialGroup.groupName}}
+                </ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list lines="full">
+            <!-- REMEMBER: <ion-radio-group [(ngModel)]="myVariable"> myVariable had to be a string to work. Convert it to a number later on. -->
+            <ion-radio-group name="howClose" value="{{howCloseEnum.MIDDLE_CIRCLE}}" [(ngModel)]="data.howClose" required allowEmptySelection=false>
+              <ion-list-header>
+                <ion-label style="font-size: 0.7em; font-weight: normal; ">How close are you to them?</ion-label>
+              </ion-list-header>
+
+              <ion-item style="margin: 0 0 5px 0;">
+                <ion-label style="margin: 0px; font-weight: bold; padding: 10px;">{{howCloseEnum.OUTER_CIRCLE}}<span style="font-style: italic; font-weight: normal; margin-left: 1em;">Not very close</span></ion-label>
+                <ion-radio slot="start" value="{{howCloseEnum.OUTER_CIRCLE}}"></ion-radio>
+                <div class="outerCircle"></div>
+              </ion-item>
+
+              <ion-item style="margin: 5px 0 5px 0;">
+                <ion-label style="margin: 0px; font-weight: bold; padding: 10px;">{{howCloseEnum.MIDDLE_CIRCLE}}</ion-label>
+                <ion-radio slot="start" value="{{howCloseEnum.MIDDLE_CIRCLE}}"></ion-radio>
+                <div class="middleCircle"></div>
+              </ion-item>
+
+              <ion-item style="margin: 5px 0 5px 0;">
+                <ion-label style="margin: 0px; font-weight: bold; padding: 10px;">{{howCloseEnum.INNER_CIRCLE}}<span style="font-style: italic; font-weight: normal; margin-left: 1em;">Very close</span></ion-label>
+                <ion-radio slot="start" value="{{howCloseEnum.INNER_CIRCLE}}"></ion-radio>
+                <div class="innerCircle"></div>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-top: 1em;">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <!-- REMEMBER: <ion-select [(ngModel)]="myVariable"> myVariable had to be a string to work. Convert it to a number later on. -->
+            <ion-label class="ion-text-wrap" style="font-size: 1.1em;" position="floating">How often do you see/speak to them?</ion-label>
+            <ion-select placeholder="Select one value" name="howOften" [(ngModel)]="data.howOften"  required>
+              <!-- <ion-select-option *ngFor="let item of howOftenEnum | keyvalue" value="{{item.value}}">{{item.key}}</ion-select-option> -->
+              <!-- I had to put options manually because with *ngFor the options were ordered alphabetically  -->
+              <ion-select-option value="{{howOftenEnum.Daily}}">Daily</ion-select-option>
+              <ion-select-option value="{{howOftenEnum.Weekly}}">Weekly</ion-select-option>
+              <ion-select-option value="{{howOftenEnum.Fortnightly}}">Fortnightly</ion-select-option>
+              <ion-select-option value="{{howOftenEnum.Monthly}}">Monthly</ion-select-option>
+              <ion-select-option value="{{howOftenEnum.Yearly}}">Yearly</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- IF YOU WANT TO SOME TESTING JUST UNCOMMENT THESE BUTTONS -->
+    <!-- <ion-button (click)="showDataContent()" color="warning" expand="block">showDataContent() - TEST BTN</ion-button> -->
+
+    </div>
+      <ion-button type="submit" color="primary" expand="block" size="large" class="submitBtn_hk" [disabled]="!f.valid" *ngIf="showForm == true">
+        Submit
+      </ion-button>
+  </form>
+</ion-content>
+

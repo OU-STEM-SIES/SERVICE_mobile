@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CircleApp v1.3</string>
+    <string name="title_activity_main">CircleApp v1.3</string>
+    <string name="package_name">uni.ac.uk.apps.CircleApp</string>
+    <string name="fileprovider_authority">uni.ac.uk.apps.CircleApp</string>
+    <string name="custom_url_scheme">uni.ac.uk.apps.CircleApp</string>
+</resources>

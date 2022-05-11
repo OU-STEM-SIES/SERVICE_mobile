@@ -1,0 +1,57 @@
+.divider_hk {
+  margin-top: 0;
+  margin-bottom: 0;
+  --background: #f4f5f8;
+  --color: black;
+}
+
+.dividerLabel_hk {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  width: 100%;
+  display: flex;
+}
+
+.listItem {
+  margin: 0 0 1em 0;
+}
+
+.mainDiv {
+  width: 100%;
+  // background-color: yellow;
+}
+
+.imgDiv {
+  text-align: center;
+}
+
+.iconImg {
+  height: 3.8em;
+}
+
+.iconLabelDiv {
+  font-size: 1em;
+  font-weight: 550;
+  color: black;
+  text-align: center;
+}
+
+.badge_hk {
+  font-size: 1.5em;
+  padding: 0.5em;
+  margin-right: 1.5em;
+  width: 4em;
+  --background: #f4f5f8;
+  --color: black;
+}
+
+.submitBtn_hk {
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 0.09em;
+  margin-top: 0.5em;
+}

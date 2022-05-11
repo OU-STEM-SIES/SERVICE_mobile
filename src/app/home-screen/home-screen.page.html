@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>CIRCLE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <p style="font-weight: bold; text-align: center; color: darkgray; margin: 0.4em; padding: 0;">CircleApp v1.3</p>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" size-md="3" offset-md="2.5">
+
+        <ion-button expand="block" color="primary" routerLink="/my-mood-screen1">
+          <div id="wrapper">
+            <div><ion-icon name="happy-outline"></ion-icon></div>
+            <div>My Mood</div>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6" size-md="3" offset-md="1">
+        <ion-button expand="block" color="primary" routerLink="/daily-record-screen1">
+          <div id="wrapper">
+            <div><ion-icon name="pencil-outline"></ion-icon></div>
+            <div>Daily<br/>Record</div>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <img id="logo" src="../../../assets/logo/Circle_2.svg"/>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" size-md="3" offset-md="2.5">
+        <ion-button expand="block" color="primary" routerLink="/my-circle-screen1">
+          <div id="wrapper">
+            <div><ion-icon name="people-circle-outline"></ion-icon></div>
+            <div>My Circle</div>
+          </div>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6" size-md="3" offset-md="1">
+        <ion-button expand="block" color="primary" routerLink="/my-history-screen1">
+          <div id="wrapper">
+            <div>
+              <ion-icon src="../../../assets/main_icons/button4_v4_white.svg"></ion-icon>
+              <!-- <ion-icon name="accessibility-outline"></ion-icon> -->
+            </div>
+            <div>My<br />History</div>
+          </div>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<app-footer></app-footer>

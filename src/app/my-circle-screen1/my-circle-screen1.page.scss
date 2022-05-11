@@ -1,0 +1,54 @@
+// =================================
+.name {
+  // border: 1px solid #000000;
+  color: black;
+  font-size: 0.8em;
+  // font-weight: bold;
+  width: 3em;
+  text-align: center;
+  word-wrap: break-word;
+  margin: 0 auto;
+}
+
+img_man {
+  margin-top: 2px;
+  height: 2.5em;
+}
+
+// to keep row visible (keep the height) in case there are no icons placed in the row
+.placeFill {
+  height: 3.3em;
+}
+
+// Variables are defined in: src/theme/variables.scss
+// inner circle
+.innerCircle {
+  background-color: rgba(var(--inner-circle-color-rgb-HK));
+}
+
+// middle circle
+.middleCircle {
+  background-color: rgba(var(--middle-circle-color-rgb-HK));
+}
+
+// outer circle
+.outerCircle {
+  background-color: rgba(var(--outer-circle-color-rgb-HK));
+}
+
+.problem_hk {
+  background-color: orange;
+  padding: 5px;
+  margin: 5px;
+}
+
+.warn_hk {
+  color: red;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 0px;
+}
+
+
+

@@ -1,0 +1,97 @@
+<ion-app>
+  <ion-menu side="start" menuId="m1" contentId="main">
+  <!-- <ion-menu side="start" menuId="m1"> -->
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title> Menu </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="full" routerLink="/start-screen">
+            <ion-icon name="home-sharp" slot="start"></ion-icon>
+            <ion-label>Home Screen</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="none" routerLink="/my-mood-screen1">
+            <ion-icon name="happy-outline" slot="start"></ion-icon>
+            <ion-label>My Mood</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <!-- <ion-menu-toggle menu="m1">
+          <ion-item lines="none">
+            <ion-icon name="analytics-outline" slot="start" class="disabledMenuItem_HK"></ion-icon>
+            <ion-label class="disabledMenuItem_HK">My Mood History</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="none" routerLink="/daily-record-screen1">
+            <ion-icon name="pencil-outline" slot="start"></ion-icon>
+            <ion-label>Daily Record</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="none" routerLink="/my-circle-screen1">
+            <ion-icon name="people-circle-outline" slot="start"></ion-icon>
+            <ion-label>My Circle</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="full" routerLink="/my-history-screen1">
+            <ion-icon src="../../../assets/main_icons/button4_v4.svg" slot="start"></ion-icon>
+            <ion-label>My History</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <!-- <ion-menu-toggle menu="m1"> -->
+          <!-- <ion-item lines="none" routerLink="/profile-screen1"> -->
+          <!-- <ion-item lines="none">
+            <ion-icon name="person-outline" slot="start" class="disabledMenuItem_HK"></ion-icon>
+            <ion-label class="disabledMenuItem_HK">Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+        <!-- <ion-menu-toggle menu="m1"> -->
+          <!-- <ion-item lines="full" routerLink="/privacy-settings-screen1"> -->
+          <!-- <ion-item lines="full">
+            <ion-icon name="shield-outline" slot="start" class="disabledMenuItem_HK"></ion-icon>
+            <ion-label class="disabledMenuItem_HK">Privacy Settings</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="full" routerLink="/credits-screen1">
+            <ion-icon name="construct-outline" slot="start"></ion-icon>
+            <ion-label>Credits</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle menu="m1">
+          <ion-item-divider>
+            <ion-label> </ion-label>
+          </ion-item-divider>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id ="main"></ion-router-outlet>
+  <!-- <ion-router-outlet main></ion-router-outlet> -->
+</ion-app>

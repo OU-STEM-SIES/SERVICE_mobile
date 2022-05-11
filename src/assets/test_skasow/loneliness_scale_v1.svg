@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2048 512" style="enable-background:new 0 0 2048 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'MyriadPro-Regular';}
+	.st1{font-size:100px;}
+	.st2{display:none;}
+	.st3{display:inline;}
+	.st4{stroke:#000000;stroke-width:15;stroke-miterlimit:10;}
+	.st5{fill:#669FF4;}
+</style>
+<g id="Loneliness">
+	<text transform="matrix(1 0 0 1 1835.3418 351.0066)"><tspan x="0" y="0" class="st0 st1">Not</tspan><tspan x="-101" y="120" class="st0 st1">lonely</tspan></text>
+	<text transform="matrix(1 0 0 1 57.9786 411.0066)" class="st0 st1">Lonely</text>
+</g>
+<g id="Good_x2F_not_good" class="st2">
+	<g class="st3">
+		<text transform="matrix(1 0 0 1 1760.1396 410.2801)" class="st0 st1">Good</text>
+		<text transform="matrix(1 0 0 1 57.9786 410.7332)" class="st0 st1">Not good</text>
+	</g>
+</g>
+<g id="Line">
+	<line class="st4" x1="70" y1="191.5" x2="1978" y2="191.5"/>
+</g>
+<g id="Ticks">
+	<line class="st4" x1="70.5" y1="282" x2="70.5" y2="102"/>
+	<line class="st4" x1="1978.5" y1="282" x2="1978.5" y2="102"/>
+	<line class="st4" x1="1344.5" y1="282" x2="1344.5" y2="102"/>
+	<line class="st4" x1="1652.5" y1="282" x2="1652.5" y2="102"/>
+	<line class="st4" x1="998.5" y1="282" x2="998.5" y2="102"/>
+	<line class="st4" x1="636.5" y1="282" x2="636.5" y2="102"/>
+	<line class="st4" x1="299.5" y1="282" x2="299.5" y2="102"/>
+</g>
+<g id="Dot">
+	<circle class="st5" cx="998" cy="192" r="90"/>
+</g>
+</svg>

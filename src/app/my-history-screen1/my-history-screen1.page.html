@@ -1,0 +1,283 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/home-screen" routerLink="/home-screen"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ (isLoading || isLoadingFromMyCircle) ? 'Loading...' : "My History" }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- IF YOU WANT TO SOME TESTING JUST UNCOMMENT THESE BUTTONS -->
+  <!-- <ion-button (click)="showDataStoredLocallyTEST()" color="warning" expand="block">showDataStoredLocallyTEST() - TEST BTN</ion-button> -->
+  <!-- <ion-button (click)="showMyHistoryTEST()" color="warning" expand="block">showMyHistoryTEST() - TEST BUTTON</ion-button> -->
+  <!-- <ion-button (click)="extractDataTEST()" color="warning" expand="block">extractDataTEST() - TEST BUTTON</ion-button> -->
+  <!-- <ion-button (click)="showUserId_and_Token()" color="warning" expand="block">showUserId_and_Token() - TEST BUTTON</ion-button> -->
+
+  <ion-grid *ngIf="isLoading || !myHistory || myHistory.length <= 0 || isLoadingFromMyCircle">
+    <ion-row>
+      <ion-col size-md="6" offset-md="3" class="ion-text-center" *ngIf="isLoading || isLoadingFromMyCircle">
+        <ion-spinner color="primary"></ion-spinner>
+      </ion-col>
+      <ion-col
+        size-md="6"
+        offset-md="3"
+        *ngIf="!isLoading && (!myHistory || myHistory.length <= 0)"
+        class="ion-text-center">
+        <p style="font-size: 1.5em; font-weight: bold;">No records found.</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- shows error message if the data from MyCircle can not be fetched -->
+  <ion-grid *ngIf="fetchingDataFromMyCircleErrorMessage.length > 0">
+    <ion-row>
+      <ion-col size-md="6" offset-md="3"class="ion-text-center">
+        <p style="font-size: 1.5em; font-weight: bold;">{{fetchingDataFromMyCircleErrorMessage}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Do not show anything if still loading data from MyCircle -->
+  <span *ngIf="!isLoadingFromMyCircle">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-md="6" offset-md="3">
+
+  <div *ngIf="!isLoading && myHistory && myHistory.length > 0">
+    <span *ngFor="let oneRecord of myHistory">
+      <ion-card *ngIf="!oneRecord.includeWellbeing">
+        <ion-card-content class="myMoodCard">
+          <ion-row class="ion-text-center">
+            <!-- <ion-label *ngIf="isToday(oneRecord.time)" class = "dateField_mym">Today {{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+            <!-- <ion-label *ngIf="isYesterday(oneRecord.time)" class = "dateField_mym">Yesterday {{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+            <!-- <ion-label *ngIf="!isToday(oneRecord.time) && !isYesterday(oneRecord.time)" class = "dateField_mym">{{oneRecord.time | date: 'MMMM d yyyy'}}&nbsp;&nbsp;{{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+            <ion-label class = "dateField_mym">{{displayDate(oneRecord.time)}}</ion-label>
+            <!-- <ion-label class = "dateField_mym">{{oneRecord.time | date: 'MMMM d yyyy'}}&nbs  p;&nbsp;{{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+          </ion-row>
+          <ion-row><ion-label class = "header_mym">My Mood</ion-label></ion-row>
+          <ion-row><ion-label class = "values_mym">{{showMood(oneRecord.currentMood)}}</ion-label></ion-row>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card *ngIf="oneRecord.includeWellbeing">
+        <ion-card-content class="dailyRecordCard">
+        <ion-row class="ion-text-center">
+          <!-- <ion-label *ngIf="isToday(oneRecord.time)" class = "dateField">Today {{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+          <!-- <ion-label *ngIf="isYesterday(oneRecord.time)" class = "dateField">Yesterday {{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+          <!-- <ion-label *ngIf="!isToday(oneRecord.time) && !isYesterday(oneRecord.time)" class = "dateField">{{oneRecord.time | date: 'MMMM d yyyy'}}&nbsp;&nbsp;{{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+          <ion-label class = "dateField">{{displayDate(oneRecord.time)}}</ion-label>
+          <!-- <ion-label class = "dateField">{{oneRecord.time | date: 'MMMM d yyyy'}}&nbsp;&nbsp;{{oneRecord.time | date: 'hh:mma' | lowercase}}</ion-label> -->
+        </ion-row>
+
+        <!-- FOR TESTING - START  - !!! DISABLE IN PRODUCTION !!! -->
+        <!--
+        <ion-row style="background-color: orange; color: black; padding: 5px 2px;">
+          wellbeing: {{oneRecord.wellbeing}} &nbsp;&nbsp; previousW...: {{oneRecord.previousWellbeing}} &nbsp;&nbsp;&nbsp; &#8645; {{getChangeForWellbeing2(oneRecord.wellbeing, oneRecord.previousWellbeing)}} <img style="height: 20px;" src="{{getImgForWellbeingChange2(oneRecord.wellbeing, oneRecord.previousWellbeing)}}"/><BR/>
+          loneliness: {{oneRecord.loneliness}} &nbsp;&nbsp; previousL...: {{oneRecord.previousLoneliness}} &nbsp;&nbsp;&nbsp; &#8645; {{getChangeForLoneliness2(oneRecord.loneliness, oneRecord.previousLoneliness)}} <img style="height: 20px;" src="{{getImgForLonelinessChange2(oneRecord.loneliness, oneRecord.previousLoneliness)}}"/>
+          <br/>
+        </ion-row>
+        -->
+        <!-- FOR TESTING - END  - !!! DISABLE IN PRODUCTION !!! -->
+
+        <ion-row>
+          <div style="margin: 5px 0; padding: 5px; text-align: center; width: 100%; color: black; font-weight: 700; background-color: #f4f5f8;">
+            Daily Record
+          </div>
+        </ion-row>
+        <ion-row>
+          <div style="padding: 0 5px;">
+            <span style="color: black;">Mood:</span><span class="value">{{showMood(oneRecord.currentMood)}}</span>
+          </div>
+        </ion-row>
+        <ion-row style="margin: 5px 0 10px 0; padding: 5px; background-color: #f4f5f8;">
+          <div style="width: 100%; margin-bottom: 5px;">
+            <span style="color: black;">Time spent in:</span>
+          </div>
+          <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between;">
+            <div style="width: 25%; display: flex; justify-content: left;">
+              <img class="icon" src="./../assets/location_icons_Sep2021/double-bed2.png"/>
+              <span class="iconValue">{{oneRecord.hoursBed}}<span class="hrs">hrs</span></span>
+            </div>
+            <div style="width: 25%; display: flex; justify-content: center;">
+              <img class="icon" src="./../assets/location_icons_Sep2021/kitchen.svg"/>
+              <span class="iconValue">{{oneRecord.hoursKitchen}}<span class="hrs">hrs</span></span>
+            </div>
+            <div style="width: 25%; display: flex; justify-content: center;">
+              <img class="icon" src="./../assets/location_icons_Sep2021/living_room.svg"/>
+              <span class="iconValue">{{oneRecord.hoursSofa}}<span class="hrs">hrs</span></span>
+            </div>
+            <div style="width: 25%; display: flex; justify-content: right;">
+              <img class="icon" src="./../assets/location_icons_Sep2021/outside.svg"/>
+              <span class="iconValue">{{oneRecord.hoursGarden}}<span class="hrs">hrs</span></span>
+            </div>
+          </div>
+        </ion-row>
+
+        <!-- DESIGN WITH ARROWS AND SLIDERS IN two rows - START -->
+        <ion-row>
+          <div style="width: 100%; display: flex; flex-flow: column nowrap; justify-content: space-between; padding-bottom: 5px;">
+            <div style="border: 1px solid #f4f5f8; width: 100%; display: flex; flex-flow: column nowrap; margin-bottom: 10px;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black; padding: 5px;">Wellbeing:</div>
+              <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;">
+                <div style="width: 99%;">
+                  <img src="{{getWellbeingImg(oneRecord.wellbeing)}}"/>
+                </div>
+                <div>
+                  <img style="height: 40px;" *ngIf="getImgForWellbeingChange2(oneRecord.wellbeing, oneRecord.previousWellbeing) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForWellbeingChange2(oneRecord.wellbeing, oneRecord.previousWellbeing)}}"/>
+                </div>
+              </div>
+            </div>
+            <div style="border: 1px solid #f4f5f8; width: 100%; display: flex; flex-flow: column nowrap;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black; padding: 5px;">Loneliness:</div>
+              <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;">
+                <div style="width: 99%;">
+                  <img src="{{getLonelinessImg(oneRecord.loneliness)}}"/>
+                </div>
+                <div>
+                  <img style="height: 40px;" *ngIf="getImgForLonelinessChange2(oneRecord.loneliness, oneRecord.previousLoneliness) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForLonelinessChange2(oneRecord.loneliness, oneRecord.previousLoneliness)}}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-row>
+        <!-- DESIGN WITH ARROWS AND SLIDERS IN two rows - END -->
+
+        <!-- DESIGN WITH ARROWS AND SLIDERS IN ONE ROW - START -->
+        <!--
+        <ion-row>
+          <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between; padding-bottom: 5px;">
+            <div style="border: 1px solid #f4f5f8; width: 49%; display: flex; flex-flow: column nowrap;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black;">Wellbeing:</div>
+              <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;">
+                <div style="width: 99%;">
+                  <img src="./../assets/test_skasow/wellbeing_scale_v1.svg"/>
+                </div>
+                <div>
+                  <img style="height: 30px;" *ngIf="getImgForWellbeingChange(oneRecord) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForWellbeingChange(oneRecord)}}"/>
+                </div>
+              </div>
+            </div>
+            <div style="border: 1px solid #f4f5f8; width: 49%; display: flex; flex-flow: column nowrap;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black;">Loneliness:</div>
+              <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;">
+                <div style="width: 99%;">
+                  <img src="./../assets/test_skasow/loneliness_scale_v1.svg"/>
+                </div>
+                <div>
+                  <img style="height: 30px;" *ngIf="getImgForLonelinessChange(oneRecord) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForLonelinessChange(oneRecord)}}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-row>
+        -->
+        <!-- DESIGN WITH ARROWS AND SLIDERS IN ONE ROW - END -->
+
+        <!-- DESIGN WITH ARROWS BELOW - START -->
+        <!--
+        <ion-row>
+          <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between; padding-bottom: 5px;">
+            <div style="border: 1px solid #f4f5f8; width: 49%; display: flex; flex-direction: column; align-items: center;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black;">Wellbeing:</div>
+              <img style="width: 100%;" src="./../assets/test_skasow/wellbeing_scale_v1.svg"/>
+              <img style="height: 30px;" *ngIf="getImgForWellbeingChange(oneRecord) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForWellbeingChange(oneRecord)}}"/>
+            </div>
+            <div style="border: 1px solid #f4f5f8; width: 49%; display: flex; flex-direction: column; align-items: center; padding-bottom: 5px;">
+              <div style="width: 100%; text-align: center; background-color: #f4f5f8; color: black;">Loneliness:</div>
+              <img style="width: 100%;" src="./../assets/test_skasow/loneliness_scale_v1.svg"/>
+              <img style="height: 30px;" *ngIf="getImgForLonelinessChange(oneRecord) !== './../assets/arrow_images/empty_arrow.svg'" src="{{getImgForLonelinessChange(oneRecord)}}"/>
+            </div>
+          </div>
+        </ion-row>
+        -->
+        <!-- DESIGN WITH ARROWS BELOW - END -->
+
+        <!-- OLD DESIGN - START -->
+        <!--
+        <ion-row style="padding-top: 2em;">
+          <ion-col>
+            <ion-row class="headerLabel">Daily Record</ion-row>
+          <ion-row class="aLabel">Mood: <span class="value">{{showMood(oneRecord.currentMood)}}</span></ion-row>
+            <ion-row class="aLabel">Wellbeing: <span class="value">{{oneRecord.wellbeing}}</span>/7</ion-row>
+            <ion-row class="aLabel">Loneliness: <span class="value">{{oneRecord.loneliness}}</span>/7</ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row class="aLabel">Time spent in:</ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="box">
+                  <img class="icon" src="./../assets/location_icons_Sep2021/double-bed2.png"/>
+                  <span class="iconValue">{{oneRecord.hoursBed}}<span class="hrs">hrs</span></span>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="box">
+                  <img class="icon" src="./../assets/location_icons_Sep2021/kitchen.svg"/>
+                  <span class="iconValue">{{oneRecord.hoursKitchen}}<span class="hrs">hrs</span></span>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="box">
+                  <img class="icon" src="./../assets/location_icons_Sep2021/living_room.svg"/>
+                  <span class="iconValue">{{oneRecord.hoursSofa}}<span class="hrs">hrs</span></span>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="box">
+                  <img class="icon" src="./../assets/location_icons_Sep2021/outside.svg"/>
+                  <span class="iconValue">{{oneRecord.hoursGarden}}<span class="hrs">hrs</span></span>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+         -->
+        <!-- OLD DESIGN - END -->
+
+        <ion-row>
+          <span class="activitiesAndPeopleArea">
+          <ul style="list-style-type: none; padding-left: 0.2em;">
+            <li *ngFor="let aMap of oneRecord.activitiesAndPeople | keyvalue">
+              <span class="activityLabel">{{showActivity(aMap.key)}}</span>
+              <span *ngIf="aMap.value.length > 0"> with:</span>
+              <!-- <span *ngIf="aMap.value.length < 1"> (alone)</span> -->
+              <ol style="list-style-type: none; padding-left: 0.8em;">
+                <li class="onePerson_LI" *ngFor="let arrayItem of aMap.value">
+                  <div class="onePersonDiv">
+                    <div [class]="getStyleClassForGroupImgDiv(arrayItem)">
+                      <img  class="socialGropupImg" src="{{getSocialGroupImageMain(arrayItem)}}"/>
+                    </div>
+                    <div class="fullName">{{showFullName(arrayItem)}}</div>
+                  </div>
+                </li>
+              </ol>
+            </li>
+          </ul>
+          </span>
+        </ion-row>
+       </ion-card-content>
+      </ion-card>
+    </span>
+
+    <ion-infinite-scroll threshold="20%;" (ionInfinite)="loadMoreData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </span>
+
+ </ion-content>
+
+

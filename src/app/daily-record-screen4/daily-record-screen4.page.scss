@@ -1,0 +1,78 @@
+.divider_hk {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  --background: #f4f5f8;
+  --color: black;
+}
+
+.dividerLabel_hk {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  width: 100%;
+  display: flex;
+}
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.main {
+  position: relative;
+  top: 0;
+  left: 0;
+  // border: 1px solid #000000;
+}
+
+.checkMarkDiv {
+  position: absolute;
+  left: 10px;
+  bottom: 1.8em;
+}
+
+.checkMarkBadge {
+  // --background: red;
+  --background: #5260ff;
+  --color: white;
+  --padding-bottom: 2px;
+  --padding-end: 5px;
+  --padding-start: 2px;
+  --padding-top: 2px;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.btn_hk {
+  height: 4.5em;
+  width: 100%;
+}
+
+.numberOfPeopleBadge {
+  position: absolute;
+  bottom: 0px;
+  left: 75%;
+  font-size: 1.1em;
+  // color: white;
+  --color: white;
+  // background-color: black;
+  // background-color: #5260ff;
+  --background: #5260ff;
+  // background-color: #4854e0;
+}
+
+.iconLabel {
+  font-size: 1em;
+  text-align: center;
+  font-weight: 550;
+  padding-top: 0.3em;
+  padding-bottom: 0.8em;
+}
+
+
+

@@ -1,0 +1,76 @@
+.divider_hk {
+  margin-top: 0;
+  margin-bottom: 0;
+  --background: #f4f5f8;
+  --color: black;
+}
+
+.dividerLabel_hk {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  width: 100%;
+  display: flex;
+}
+
+.titleHeader {
+  background-color: var(--ion-color-primary);
+  font-weight: 520;
+  color: white;
+  text-align: center;
+  padding-bottom: 0.5em;
+  font-size: 1.1em;
+  border-bottom: var(--ion-color-primary-shade) 2px solid;
+}
+
+.byMyselfBtn {
+  font-weight: 590;
+  font-size: 1.2em;
+  letter-spacing: 0.09em;
+  margin: 0 0.5em;
+}
+
+.numberOfPeopleSelectedBadge {
+  --background: black;
+  --color: white;
+}
+
+// Variables are defined in: src/theme/variables.scss
+// inner circle
+.innerCircle, .middleCircle, .outerCircle, .circleUnknown {
+  width: 2.2em;
+  height: 2.2em;
+  // height: 80%;
+}
+
+.innerCircle {
+  background-color: rgba(var(--inner-circle-color-rgb-HK));
+}
+
+// middle circle
+.middleCircle {
+  background-color: rgba(var(--middle-circle-color-rgb-HK));
+}
+
+// outer circle
+.outerCircle {
+  background-color: rgba(var(--outer-circle-color-rgb-HK));
+}
+
+.circleUnknown {
+  background-color: transparent;
+}
+
+.fullName {
+  font-size: 1.2em;
+  margin-left: 0.5em;
+  font-weight: 500;
+}
+
+.socialGropupImg {
+  margin: 5px;
+}
+

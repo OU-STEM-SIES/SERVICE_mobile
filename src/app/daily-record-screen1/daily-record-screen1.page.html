@@ -1,0 +1,210 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/home-screen" routerLink="/home-screen"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Daily Record - 1/5</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="divider_hk">
+    <ion-label class="dividerLabel_hk">How was your overall<br/>mood today?</ion-label>
+  </ion-item-divider>
+
+  <ion-grid style="margin: 0px;">
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3" style="padding: 0 1em;">
+        <p style="text-align: center; font-style: italic;">Tap with your finger on the grid</p>
+        <h3>My mood is: <span [style.background-color]="dailyRecordData.moodToday === 'NONE' ? 'white' : 'yellow'" style="padding: 5px 10px;">{{showMood(dailyRecordData.moodToday)}}</span></h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="gridStyle">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-md="6" offset-md="3" class="backgroundImageHK" [style.background-image]="'url(../../assets/moodImages/' +backgroundImage+ ')'">
+
+        <!-- THIS IS 5x5 GRID SO -2<= x <= 2 AND -2<= y <= 2 -->
+        <!-- y = 2  (row nuber: 1 counting from the top of the grid) -->
+        <ion-row>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'ANGR', -2, 2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-2,2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'AFRA', -1, 2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-1,2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'ASTO', 0, 2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(0,2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'EXCI', 1, 2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(1,2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'HAPP', 2, 2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(2,2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- y = 1  (row nuber: 2 counting from the top of the grid) -->
+        <ion-row>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'FRUS', -2, 1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-2,1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'TENS', -1, 1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-1,1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'ALAR', 0, 1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(0,1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'DELI', 1, 1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(1,1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'GLAD', 2, 1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(2,1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- y = 0  (row nuber: 3 counting from the top of the grid) -->
+        <ion-row>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'DIST', -2, 0)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-2,0)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'ANNO', -1, 0)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-1,0)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'NEUT', 0, 0)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(0,0)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'PLEA', 1, 0)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(1,0)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'CONT', 2, 0)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(2,0)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+        <!-- y = -1  (row nuber: 4 counting from the top of the grid) -->
+        <ion-row>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'DEPR', -2, -1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-2,-1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'MISR', -1, -1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-1,-1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'SLEEP', 0, -1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(0,-1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'ATEA', 1, -1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(1,-1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'SATI', 2, -1)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(2,-1)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+        <!-- y = -2  (row nuber: 4 counting from the top of the grid) -->
+        <ion-row>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'BORE', -2, -2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-2,-2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'SAD', -1, -2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(-1,-2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'TIRE', 0, -2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(0,-2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'CALM', 1, -2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(1,-2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="divFiller" (click)="recordMood($event, 'RELA', 2, -2)">
+              <div class="pointerImgDiv"><img *ngIf="showPointer(2,-2)" class="pointerImg" src="../../assets/moodImages/{{pointerImage}}"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3" style="padding: 0.5em; text-align: center;">
+        <!-- <ion-button type="submit" color="primary" size="large" class="submitBtn_hk" [disabled]="dailyRecordData.moodToday === 'NONE' ? 'true' : 'false'" (click)="resetBtnClicked()">Reset</ion-button> -->
+        <!-- THIS IS NOT USED AT THE MOMENT BUT IT SHOWS WHAT ELSE COULD BE DONE EASILY:  -->
+        <!-- <ion-button (click)="switchGrid()">{{ backgroundImage==='moodBackgroundGridON.png' ? 'Grid OFF' : 'Grid ON' }}</ion-button> -->
+        <!-- <ion-button (click)="changeBackgroundImage('mood-grid-system_v2.svg')">Bg1</ion-button> -->
+        <!-- <ion-button (click)="changeBackgroundImage('mood-grid-system_v2_yellow.svg')">Bg2</ion-button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- IF YOU WANT TO SOME TESTING JUST UNCOMMENT THESE BUTTONS -->
+  <!-- <ion-button (click)="showDailyRecordDataTEST()" color="warning" expand="block">showDailyRecordDataTEST() - TEST</ion-button> -->
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="--background: #f4f5f8;">
+    <ion-title>Page 1 of 5</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="nextFooterBtn" (click)="nextFooterBtnClicked()" [disabled]="dailyRecordData.moodToday === 'NONE'">Next
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+

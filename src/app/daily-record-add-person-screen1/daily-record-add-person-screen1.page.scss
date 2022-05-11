@@ -1,0 +1,36 @@
+.submitBtn_hk {
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 0.09em;
+}
+
+.innerCircle, .middleCircle, .outerCircle {
+  width: 5em;
+  height:80%;
+}
+
+// Variables are defined in: theme/variables.scss
+.innerCircle {
+  background-color: rgba(var(--inner-circle-color-rgb-HK));
+}
+
+.middleCircle {
+  background-color: rgba(var(--middle-circle-color-rgb-HK));
+}
+
+.outerCircle {
+  background-color: rgba(var(--outer-circle-color-rgb-HK));
+}
+
+.socialGroupSelection {
+  width: 100%;
+  padding-left: 65px;
+  padding-right: 4px;
+  margin-left: 0px;
+  margin-top: 10px;
+  color: black;
+  background: white;
+  background-repeat: no-repeat;
+  background-position: 2% 50%;
+  background-size: 30px 30px;
+}

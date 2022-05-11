@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Back"
+        defaultHref="/home-screen"
+        routerLink="/home-screen"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ isLoading ? 'Loading...' : "Profile - 1/9" }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <h1 style="margin: 1em;">THIS PART IS UNDER DEVELOPMENT - it will be done in a totally different way</h1>
+  <div class="ion-text-center" style="margin-top: 10%" *ngIf="isLoading">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <ion-item-divider class="profileHeader" color="light">
+      <ion-label class="label_hk"
+        >{{ userProfileData.firstName }} {{ userProfileData.lastName
+        }}</ion-label
+      >
+    </ion-item-divider>
+
+    <h2></h2>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.dateOfBirth }}</h2>
+          <p>Date of birth</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.gender }}</h2>
+          <p>Gender</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.education }}</h2>
+          <p>Education</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.maritalStatus }}</h2>
+          <p>Marital status</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.ethnicity }}</h2>
+          <p>Ethnicity</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.smoking }}</h2>
+          <p>Smoking</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.alcoholUnitsPerWeek }}</h2>
+          <p>Alcohol units per week</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.disability }}</h2>
+          <p>Disability</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2 *ngFor="let item of userProfileData.healthConditions ">
+            {{ item }}
+          </h2>
+          <p>Health conditions</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.phone }}</h2>
+          <p>Phone</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <h2>{{ userProfileData.email }}</h2>
+          <p>Email</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+    <!-- <p><b>DATA FOR DEVELOPERS:</b></p>
+    <p><b>userId:</b> {{ userProfileData.userId }}</p>
+    <p><b>userName:</b> {{ userProfileData.userName }}</p>
+    <p><b>firstName:</b> {{ userProfileData.firstName }}</p>
+    <p><b>lastName:</b> {{ userProfileData.lastName }}</p>
+    <p><b>email:</b> {{ userProfileData.email }}</p>
+    <p><b>role:</b> {{ userProfileData.role }}</p>
+    <p><b>phone:</b> {{ userProfileData.phone }}</p>
+    <p><b>image:</b> {{ userProfileData.image }}</p>
+    <p><b>dateOfBirth:</b> {{ userProfileData.dateOfBirth }}</p>
+    <p><b>gender:</b> {{ userProfileData.gender }}</p>
+    <p><b>ethnicity:</b> {{ userProfileData.ethnicity }}</p>
+    <p><b>education:</b> {{ userProfileData.education }}</p>
+
+    <p><b>disability:</b> {{ userProfileData.disability }}</p>
+    <p><b>maritalStatus:</b> {{ userProfileData.maritalStatus }}</p>
+    <p><b>smoking:</b> {{ userProfileData.smoking }}</p>
+    <p><b>alcoholUnitsPerWeek:</b> {{ userProfileData.alcoholUnitsPerWeek }}</p>
+    <p><b>healthConditions:</b></p>
+    <ul>
+      <li *ngFor="let item of userProfileData.healthConditions ">{{ item }}</li>
+    </ul> -->
+
+
+  </div>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-title>Page 1 of 9</ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button id="nextFooterBtn" (click)="nextFooterBtnClicked()">Next
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

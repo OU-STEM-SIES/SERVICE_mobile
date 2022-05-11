@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/daily-record-screen1" routerLink="/daily-record-screen1"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Daily Record - 2/5</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="divider_hk">
+    <ion-label class="dividerLabel_hk">Record Wellbeing</ion-label>
+  </ion-item-divider>
+
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-md="6" offset-md="3">
+
+  <ion-list>
+    <ion-radio-group name="wellbeingRadioGroup" [(ngModel)]="dailyRecordData.wellbeing" allow-empty-selection="false">
+      <ion-list-header>
+        <ion-label>How would you rate your wellbeing today?</ion-label>
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of radio_list">
+        <ion-label style="padding-left: 1em;">{{item.text}}</ion-label>
+        <ion-radio slot="start" name="{{item.name}}" value="{{item.value}}"
+          color="{{item.color}}" disabled="{{item.disabled}}"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <div class="privacySettingsReminder" *ngIf="myPrivacySettings.shareMoodDataWithCircle === true">
+    <p><i>This data IS currently being shared. <br/>You could change that in 'Privacy Settings' (toggle 'Share mood data with circle').</i></p>
+  </div>
+  <div class="privacySettingsReminder" *ngIf="myPrivacySettings.shareMoodDataWithCircle === false">
+    <p><i>This data IS NOT currently being shared. <br/>You could change that in 'Privacy Settings' (toggle 'Share mood data with circle').</i></p>
+  </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="--background: #f4f5f8;">
+    <ion-buttons slot="start">
+      <ion-button id="backFooterBtn" (click)="backFooterBtnClicked()">Back
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Page 2 of 5</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="nextFooterBtn" (click)="nextFooterBtnClicked()">Next
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

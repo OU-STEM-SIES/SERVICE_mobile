@@ -1,0 +1,6 @@
+{
+	"appId": "uni.ac.uk.apps.CircleApp",
+	"appName": "CircleApp v1.3",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

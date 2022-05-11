@@ -1,0 +1,146 @@
+// color of the arrow: #6699ff;
+//
+
+/* FOR MyMood CARDS: */
+.myMoodCard {
+  padding: 0.9em 0.5em;
+}
+
+.dateField_mym {
+  color: #808080;
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+.header_mym {
+  font-size: 1.9em;
+  font-weight: normal;
+  color: black;
+  margin: 0.4em auto;
+}
+
+.values_mym {
+  font-size: 1.7em;
+  font-weight: normal;
+  color:#3880ff;
+  margin: 0 auto;
+}
+
+
+/* FOR DailyRecord CARDS: */
+.dailyRecordCard {
+  padding: 0 0.2em 0.2em 0.3em;
+}
+
+.aLabel, .headerLabel {
+  font-size: 1.3em;
+}
+
+.aLabel, .headerLabel {
+  color: black;
+}
+
+.headerLabel {
+  font-weight: bold;
+}
+
+.activitiesAndPeopleArea {
+  margin: 0;
+  padding: 0;
+  font-size: 1.3em;
+  color: black;
+}
+
+.activitiesAndPeopleArea ul {
+  margin: 0 0 0.25em;
+}
+
+.activityLabel {
+  color:#3880ff;
+  font-weight: bold;
+}
+
+.dateField {
+  color: #808080;
+  font-size: 1em;
+  margin: 0.5em auto 0;
+}
+
+.icon {
+  height: 1.8em;
+}
+
+.iconValue {
+  color:#3880ff;
+  font-size: 1.5em;
+  margin-left: 3px;
+}
+
+.hrs {
+  color:#3880ff;
+  font-size: 0.45em;
+}
+
+.value {
+  color:#3880ff;
+  margin-left: 0.5em;
+}
+
+/*  FOR aligning icons and txt in DailyRecord CARDS:  */
+.box {
+  display: flex;
+  align-items:center;
+}
+
+// Variables are defined in: src/theme/variables.scss
+// inner circle
+.innerCircle, .middleCircle, .outerCircle, .circleUnknown {
+  width: 1.7em;
+  height: 1.7em;
+  // height: 80%;
+}
+
+.innerCircle {
+  background-color: rgba(var(--inner-circle-color-rgb-HK));
+}
+
+// middle circle
+.middleCircle {
+  background-color: rgba(var(--middle-circle-color-rgb-HK));
+}
+
+// outer circle
+.outerCircle {
+  background-color: rgba(var(--outer-circle-color-rgb-HK));
+}
+
+.circleUnknown {
+  background-color: transparent;
+}
+
+.onePerson_LI {
+  // padding-left: 0.5em;
+  margin-bottom: 4px;
+}
+
+.onePersonDiv {
+  display: flex;
+  // align-content: center;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.socialGropupImg {
+  margin: 5px;
+}
+
+.fullName {
+  color: black;
+  font-weight: normal;
+  margin-left: 0.5em;
+}
+
+
+
+
+

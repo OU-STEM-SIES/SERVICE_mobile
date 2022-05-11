@@ -1,0 +1,79 @@
+<!-- This is just for login screen -->
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>SERVICE app login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img id="logoLogin" src="../../../assets/logo/Circle_2.svg" />
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-list>
+            <!-- WE DO NOT USE EMAIL HERE FOR LOGIN. JUST THE USERNAME.
+              WE MIGHT USE MAIL FOR LOGIN IN THE NEXT VERSION
+              <ion-item>
+                <ion-label position="floating">E-mail</ion-label>
+              <ion-input
+                type="email"
+                ngModel
+                name="email"
+                required
+                email
+                #emailCtrl="ngModel"
+              ></ion-input>
+            </ion-item> -->
+
+            <ion-item>
+              <ion-label position="floating">User name</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="userName"
+                required
+                #emailCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input
+                type="text"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+                #passwordCtrl="ngModel"
+              ></ion-input>
+            </ion-item>
+            <ion-item
+              *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
+              lines="none"
+            >
+              <ion-label>Should at least be 6 characters long.</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button
+            type="submit"
+            color="primary"
+            expand="block"
+            size="large"
+            [disabled]="!f.valid"
+            style="font-weight: bold; font-size: 1.5em; letter-spacing: 0.09em"
+          >
+            Login
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
+<app-footer></app-footer>

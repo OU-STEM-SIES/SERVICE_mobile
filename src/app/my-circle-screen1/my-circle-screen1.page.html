@@ -1,0 +1,534 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/home-screen" routerLink="/home-screen"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ isLoading ? 'Loading...' : "My Circle" }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid *ngIf="isLoading" >
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <div class="ion-text-center">
+          <ion-spinner color="primary"></ion-spinner>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- INDEXIND ROWS AND COLUMNS STARTS FROM 0 -->
+  <ion-grid *ngIf="!isLoading" style="margin-top: 0em;">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" size-md="6" offset-md="3">
+
+
+    <!-- 0 row starts here: -->
+    <ion-row class="outerCircle">
+      <ion-col>
+        <div class="placeFill" *ngIf="!showPerson(0,0)"></div>
+        <div (click)="btnClicked(0,0)" *ngIf="showPerson(0,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,0)}}"/>
+          </div>
+          <div class="name">{{getName(0,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,1)" *ngIf="showPerson(0,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,1)}}"/>
+          </div>
+          <div class="name">{{getName(0,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,2)" *ngIf="showPerson(0,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,2)}}"/>
+          </div>
+          <div class="name">{{getName(0,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,3)" *ngIf="showPerson(0,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,3)}}"/>
+          </div>
+          <div class="name">{{getName(0,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,4)" *ngIf="showPerson(0,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,4)}}"/>
+          </div>
+          <div class="name">{{getName(0,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,5)" *ngIf="showPerson(0,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,5)}}"/>
+          </div>
+          <div class="name">{{getName(0,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(0,6)" *ngIf="showPerson(0,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(0,6)}}"/>
+          </div>
+          <div class="name">{{getName(0,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 1 row starts here: -->
+    <ion-row>
+      <ion-col class="outerCircle">
+        <div class="placeFill" *ngIf="!showPerson(1,0)"></div>
+        <div (click)="btnClicked(1,0)" *ngIf="showPerson(1,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,0)}}"/>
+          </div>
+          <div class="name">{{getName(1,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(1,1)" *ngIf="showPerson(1,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,1)}}"/>
+          </div>
+          <div class="name">{{getName(1,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(1,2)" *ngIf="showPerson(1,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,2)}}"/>
+          </div>
+          <div class="name">{{getName(1,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(1,3)" *ngIf="showPerson(1,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,3)}}"/>
+          </div>
+          <div class="name">{{getName(1,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(1,4)" *ngIf="showPerson(1,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,4)}}"/>
+          </div>
+          <div class="name">{{getName(1,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(1,5)" *ngIf="showPerson(1,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,5)}}"/>
+          </div>
+          <div class="name">{{getName(1,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="outerCircle">
+        <div (click)="btnClicked(1,6)" *ngIf="showPerson(1,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(1,6)}}"/>
+          </div>
+          <div class="name">{{getName(1,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 2 row starts here: -->
+    <ion-row>
+      <ion-col class="outerCircle">
+        <div class="placeFill" *ngIf="!showPerson(2,0)"></div>
+        <div (click)="btnClicked(2,0)" *ngIf="showPerson(2,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,0)}}"/>
+          </div>
+          <div class="name">{{getName(2,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(2,1)" *ngIf="showPerson(2,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,1)}}"/>
+          </div>
+          <div class="name">{{getName(2,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(2,2)" *ngIf="showPerson(2,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,2)}}"/>
+          </div>
+          <div class="name">{{getName(2,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(2,3)" *ngIf="showPerson(2,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,3)}}"/>
+          </div>
+          <div class="name">{{getName(2,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(2,4)" *ngIf="showPerson(2,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,4)}}"/>
+          </div>
+          <div class="name">{{getName(2,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(2,5)" *ngIf="showPerson(2,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,5)}}"/>
+          </div>
+          <div class="name">{{getName(2,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="outerCircle">
+        <div (click)="btnClicked(2,6)" *ngIf="showPerson(2,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(2,6)}}"/>
+          </div>
+          <div class="name">{{getName(2,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 3 row starts here: -->
+    <ion-row>
+      <ion-col class="outerCircle">
+        <div class="placeFill" *ngIf="!showPerson(3,0)"></div>
+        <div (click)="btnClicked(3,0)" *ngIf="showPerson(3,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,0)}}"/>
+          </div>
+          <div class="name">{{getName(3,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(3,1)" *ngIf="showPerson(3,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,1)}}"/>
+          </div>
+          <div class="name">{{getName(3,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(3,2)" *ngIf="showPerson(3,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,2)}}"/>
+          </div>
+          <div class="name">{{getName(3,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <!-- <div (click)="presentActionSheetForME()"> -->
+        <div>
+          <div>
+            <img  class="img_man" src="./../assets/socialGroupIcons/only_me.png"/>
+          </div>
+          <div class="name">ME</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(3,4)" *ngIf="showPerson(3,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,4)}}"/>
+          </div>
+          <div class="name">{{getName(3,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(3,5)" *ngIf="showPerson(3,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,5)}}"/>
+          </div>
+          <div class="name">{{getName(3,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="outerCircle">
+        <div (click)="btnClicked(3,6)" *ngIf="showPerson(3,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(3,6)}}"/>
+          </div>
+          <div class="name">{{getName(3,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 4 row starts here: -->
+    <ion-row>
+      <ion-col class="outerCircle">
+        <div class="placeFill" *ngIf="!showPerson(4,0)"></div>
+        <div (click)="btnClicked(4,0)" *ngIf="showPerson(4,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,0)}}"/>
+          </div>
+          <div class="name">{{getName(4,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(4,1)" *ngIf="showPerson(4,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,1)}}"/>
+          </div>
+          <div class="name">{{getName(4,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(4,2)" *ngIf="showPerson(4,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,2)}}"/>
+          </div>
+          <div class="name">{{getName(4,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(4,3)" *ngIf="showPerson(4,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,3)}}"/>
+          </div>
+          <div class="name">{{getName(4,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="innerCircle">
+        <div (click)="btnClicked(4,4)" *ngIf="showPerson(4,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,4)}}"/>
+          </div>
+          <div class="name">{{getName(4,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(4,5)" *ngIf="showPerson(4,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,5)}}"/>
+          </div>
+          <div class="name">{{getName(4,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="outerCircle">
+        <div (click)="btnClicked(4,6)" *ngIf="showPerson(4,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(4,6)}}"/>
+          </div>
+          <div class="name">{{getName(4,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 5 row starts here: -->
+    <ion-row>
+      <ion-col class="outerCircle">
+        <div class="placeFill" *ngIf="!showPerson(5,0)"></div>
+        <div (click)="btnClicked(5,0)" *ngIf="showPerson(5,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,0)}}"/>
+          </div>
+          <div class="name">{{getName(5,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(5,1)" *ngIf="showPerson(5,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,1)}}"/>
+          </div>
+          <div class="name">{{getName(5,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(5,2)" *ngIf="showPerson(5,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,2)}}"/>
+          </div>
+          <div class="name">{{getName(5,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(5,3)" *ngIf="showPerson(5,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,3)}}"/>
+          </div>
+          <div class="name">{{getName(5,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(5,4)" *ngIf="showPerson(5,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,4)}}"/>
+          </div>
+          <div class="name">{{getName(5,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="middleCircle">
+        <div (click)="btnClicked(5,5)" *ngIf="showPerson(5,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,5)}}"/>
+          </div>
+          <div class="name">{{getName(5,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col class="outerCircle">
+        <div (click)="btnClicked(5,6)" *ngIf="showPerson(5,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(5,6)}}"/>
+          </div>
+          <div class="name">{{getName(5,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- 6 row starts here: -->
+    <ion-row class="outerCircle">
+      <ion-col>
+        <div class="placeFill" *ngIf="!showPerson(6,0)"></div>
+        <div (click)="btnClicked(6,0)" *ngIf="showPerson(6,0)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,0)}}"/>
+          </div>
+          <div class="name">{{getName(6,0)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,1)" *ngIf="showPerson(6,1)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,1)}}"/>
+          </div>
+          <div class="name">{{getName(6,1)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,2)" *ngIf="showPerson(6,2)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,2)}}"/>
+          </div>
+          <div class="name">{{getName(6,2)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,3)" *ngIf="showPerson(6,3)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,3)}}"/>
+          </div>
+          <div class="name">{{getName(6,3)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,4)" *ngIf="showPerson(6,4)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,4)}}"/>
+          </div>
+          <div class="name">{{getName(6,4)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,5)" *ngIf="showPerson(6,5)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,5)}}"/>
+          </div>
+          <div class="name">{{getName(6,5)}}</div>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div (click)="btnClicked(6,6)" *ngIf="showPerson(6,6)">
+          <div>
+              <img  class="img_man" src="{{getImage(6,6)}}"/>
+          </div>
+          <div class="name">{{getName(6,6)}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="anyProblemsWithShowingPeople()" class="problem_hk">
+    <h2 class="warn_hk">Warning!</h2>
+    <ul>
+      <li *ngIf="showingPeopleProblem_OUTER_CIRCLE !== ''">{{showingPeopleProblem_OUTER_CIRCLE}}</li>
+      <li *ngIf="showingPeopleProblem_MIDDLE_CIRCLE !== ''">{{showingPeopleProblem_MIDDLE_CIRCLE}}</li>
+      <li *ngIf="showingPeopleProblem_INNER_CIRCLE !== ''">{{showingPeopleProblem_INNER_CIRCLE}}</li>
+    </ul>
+  </div>
+
+  <!-- IF YOU WANT TO SOME TESTING JUST UNCOMMENT THESE BUTTONS -->
+  <!-- <ion-button (click)="parsingTEST_1()" color="warning" expand="block">parsingTEST_3() - TEST BTN</ion-button> -->
+  <!-- <ion-button (click)="showPeopleInTheCircleTEST()" color="warning" expand="block">showPeopleInTheCircleTEST() - TEST BTN</ion-button> -->
+  <!-- <ion-button (click)="showUserId_and_TokenTEST()" color="warning" expand="block">showUserId_and_TokenTEST() - TEST BTN</ion-button> -->
+  <!-- <ion-button (click)="showDataStoredLocallyTEST()" color="warning" expand="block">showDataStoredLocallyTEST() - TEST BTN</ion-button> -->
+  <!-- <ion-button type="submit" color="primary" expand="block" size="large" (click)="testBtnClicked();">TEST BTN</ion-button> -->
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="--background: #f4f5f8;">
+    <ion-buttons slot="start">
+      <ion-button id="addToCircleBtn" (click)="addPersonToCircle()">&#65291;Add to Circle
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
