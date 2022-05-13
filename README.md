@@ -1,4 +1,4 @@
-# CircleApp v1.3 (released Dec 2021)
+# CircleApp v1.0 
 
 This repository contains the client-side code for the [SERVICE project](https://serviceproject.org.uk).  
 
